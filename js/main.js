@@ -5,7 +5,7 @@ const links = [
      url: "week1/index.html"}
 ]
 
-links.forEach(() => {
+links.forEach((item) => {
     const listItem = document.createElement("li");
     listItem.appendChild(item);
 })
