@@ -47,5 +47,53 @@
     <h2>Verifying if a Value is a Number</h2>
     <p>You can check if a value is a number than can be used by using the <i>Number.isInfinite()</i> methods
     If the return value is "true" it means the number is not "Infinity", "-Infinity", or "Nan".</p>
+
+    <h2>Converting Between Strings and Numbers</h2>
+    <p>There are a number of ways to change a string to a number</p>
+    <ul>
+        <li>Number('23'); >> 23</li>
+        <li>const answer = '5' * 1; >> 5</li>
+        <li>const answer = +'5'; >> 5</li>
+    </ul>
+    <p>Converting Numbers to Strings</p>
+    <ul>
+        <li>String(3); >> '3'</li>
+        <li>3 + ''; >> '3'</li>
+        <li>10..toString(); >> '10'</li>
+    </ul>
+
+    <h2>Arrays</h2>
+    <p>Using the delete keyword to remove items from an array can leave "undefined" holes in your array.
+        The "length" property as in "array.length" is mutable. As you make the array longer, extra slots in the array
+        will be filled with "undefined", and making the array shorter will completely remove all the extra elements in the array.
+    </p>
+
+    <h3>Useful Array Methods</h3>
+    <ul>
+        <li>pop(): remove and return element from end of array</li>
+        <li>push(): add element to the end of array</li>
+        <li>shift(): remove and return element from start of array</li>
+        <li>unshift(): add element to the start of array</li>
+        <li>slice(): creates a subarray from original array. It is non-destructive.</li>
+        <li>splice(): used to remove and/or replace items in the list. It is a better option than "delete"</li>
+    </ul>
+    <p>To find out if a certain value is in an array, use the "indexOf()" or "includes()" method.</p>
+
+    <h2>Maps</h2>
+    <p>Maps are used to create objects with key, value pairs. Useful methods when using maps are:</p>
+    <ul>
+        <li>set(): add an item to the map</li>
+        <li>get(): retrieve an item from the map</li>
+        <li>delete(): remove an item from the map</li>
+        <li>has(): check if an item exists in the map</li>
+    </ul>
+
+    <h2>Functions</h2>
+    <ul>
+        <li>Default parameter should always come after non-default parameters in a function declaration. Example: function discount(price, amount=10) {}. This is to avoid having to enter default values anyway during function calls.</li>
+        <li>Use a callback function to sort an array of integers. numbers.sort((a,b) => {return a-b})</li>
+    </ul>
+
+    
 </body>
 </html>
