@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2</title>
+</head>
+<body>
+    <h2>JavaScript Grammar</h2>
+    <ul>
+        <li>JS syntax is know as C-style because each statement ends with a new line of semicolon.</li>
+        <li>Code blocks are placed in curly braces.</li>
+        <li>There are quite a number of reserved words. Even though 'undefined', 'Nan', and 'Infinity' are not reserved, they should be treated as such.</li>
+    </ul>
+    <h2>Primitive Data Types</h2>
+    <p>This is a list of primitive data types in JavaScript. Any value that is not included in the list is an <strong>object</strong>:</p>
+    <ul>
+        <li>String - "Hello"</li>
+        <li>Symbol - "const uniqueID = Symbol();"</li>
+        <li>Number - 157</li>
+        <li>Boolean - true/false</li>
+        <li>Undefined - undefined</li>
+        <li>Null - null</li>
+    </ul>
+    <p>In JS, you can verify the type of value by using the <i>typeof</i> operator.</p>
+    <h2>Variables</h2>
+    <p><i>const</i> and <i>let</i> are keywords used to declare variables. Const is used to declare immutable variables of primitive data types,
+    while let is used to declare mutable variables. That said, if the variable holds an array, function or object, const will not make it immutable. 
+    Meaning that the object can still be mutated. What const does not allow, however, is for the variable to be assigned to another object, array, or function.</p>
+    <p>"let" and "const" have block scope, meaning that their values are only accessible within the block they are declared. It is generally bad practice to
+        declare globally scoped variables in programming, as this can cause issues with reusing the same variable names in large programs, and having values overwrite
+        each other.
+    </p>
+
+    <h2>Variable Naming</h2>
+    <p>Constants and variable names can start with an upper/lower-case letter, underscore"_", or dollar sign "$". They can contain numbers, but cannot
+        start with numbers. Examples: "$name", "_answer", "firstName", "address_line1".
+    </p>
+
+    <h2>String Properties and Methods</h2>
+    <p>String variables have both properties and methods. The similarity between properties and methods is their use of the dot notation.
+        An example of string property is the ".length" as in "name.length" property. An example of a method is ".toUpperCase()" as in "name.toUpperCase()".
+        Methods contain parentheses, while properties do not.
+    </p>
+
+    <h2>Verifying if a Value is a Number</h2>
+    <p>You can check if a value is a number than can be used by using the <i>Number.isInfinite()</i> methods
+    If the return value is "true" it means the number is not "Infinity", "-Infinity", or "Nan".</p>
+</body>
+</html>

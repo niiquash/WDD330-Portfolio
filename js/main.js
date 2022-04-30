@@ -1,8 +1,14 @@
 let orderedList = document.querySelector("ol");
 
 const links = [
-    {label: "Week-1 Notes",
-     url: "week1/index.html"}
+    {
+        label: "Week-1",
+        url: "week1/index.html"
+    },
+    {
+        label: "Week-2",
+        url: "week2/index.html"
+    }
 ]
 
 links.forEach((item) => {
