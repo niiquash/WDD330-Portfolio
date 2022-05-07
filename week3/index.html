@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Notes</title>
+</head>
+    <h2>Useful Math Properties</h2>
+    <ul>
+        <li>Math.ceil - rounds up to the next integer. Eg: Math.ceil(4.2) >> 5</li>
+        <li>Math.floor - rounds down to the next integer. Eg: Math.floor(4.2) >> 4</li>
+        <li>Math.round - rounds to the nearest integer. Eg: Math.round(4.2) >> 4, Math.round(4.7) >> 5</li>
+        <li>Math.random() - returns and number between 0 and 1, both inclusive. Eg: Math.random() >> 0.78</li>
+    </ul>
+
+    <h2>Document Object Model</h2>
+    <ul>
+        <li>The DOM stores whitespaces as text.</li>
+        <li>All nodes in the dom have a numerical code to signify what type they are.</li>
+        <ul>
+            <li>1 - element</li>
+            <li>2 - attribute</li>
+            <li>3 - text</li>
+            <li>8 - comment</li>
+            <li>9 - body</li>
+        </ul>
+        <li>Getting Elements from the DOM</li>
+        <ul>
+            <li>getElementById()</li>
+            <li>getElementByTagName()</li>
+            <li>getElementByClassName()</li>
+        </ul>
+        <li>Query Selectors are another way of selecting elements from the DOM</li>
+        <ul>
+            <li>document.querySelector()</li>
+            <li>document.querySelectorAll()</li>
+        </ul>
+        <li>Finding the value of a Node</li>
+        <ul>
+            <li>.firstChild</li>
+            <li>.nodeValue</li>
+            <li>.textContent</li>
+        </ul>
+    </ul>
+    <h2>Events</h2>
+    <ul>
+        <li>addEventListener() will attach an event listener to the document's body. It takes a parameter like 'click' and a function for the event.</li>
+        <li>Examples of mouse events are: click, mousedown, mouseup, dblclick, mouseover, mousemove</li>
+        <li>Examples of keyboard events are: keydown, keyup, keypress</li>
+        <li>An event can be removed from the dom by using the method '.removeEventListener()'.</li>
+
+    </ul>
+<body>
+
+</body>
+</html>
