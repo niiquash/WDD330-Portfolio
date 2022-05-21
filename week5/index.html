@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 5 Notes</title>
+  </head>
+  <body>
+    <h1>Testing and Debugging</h1>
+    <h2>Errors</h2>
+    <ul>
+      <li>
+        System error - usually an issue with the system causing programs to
+        crash.
+      </li>
+      <li>
+        Programmer error - syntax errors or faulty program logic can cause
+        errors.
+      </li>
+      <li>User error - incorrect data input can also cause issues.</li>
+    </ul>
+
+    <h2>Exceptions</h2>
+    <p>
+      An exception is an error that produces a return value. This return value
+      can be used to deal with the error.
+    </p>
+
+    <h2>Stack Traces</h2>
+    <p>
+      A stack trace is produced by an exception. This shows you where the error
+      occurred, and you can work your way backwards to solve the problem.
+    </p>
+
+    <h2>Strict Mode</h2>
+    <p>
+      To avoid sloppy code, ES5 introduced strict mode, that produces more
+      exceptions and warnings and prohibits the use of some deprecated features.
+      Strict mode simply requires the string '<code>use strict</code>' at the
+      first line of a JS file. You can also use strict mode on a per-function
+      basis.
+    </p>
+
+    <h2>Feature Detection</h2>
+    <p>
+      We can determine a browsers support for a certain feature by using feature
+      detection. You can wrap any methods you are uncertain about in an if block
+      thus:<br />
+      <code> if (window.holoDeck) { virtualReality.activate(); } </code><br />
+      Another cool library that helps to implement feature detection is
+      <b>Modernizr</b>
+    </p>
+
+    <h2>Debugging in the Browser</h2>
+    <p>
+      In the past, alerts were used for debugging, but modern JavaScript came up
+      with the console.log() method. This can be used to log the value of
+      variables at different stages of the program. Also, console.trace() will
+      log an interactive stack trace in the console. This will show the
+      functions that were called in the lead up to an exception occurring while
+      the code is running.
+    </p>
+
+    <h2>Execption Handling</h2>
+    <p>
+      If we suspect a piece of code will result in an exception, we can wrap it
+      in a try block. The code inside the try block will run as normal, but if
+      there is an exception thrown, an error object is automatically passed as a
+      parameter to the catch block.
+    </p>
+  </body>
+</html>
