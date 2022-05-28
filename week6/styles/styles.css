@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    line-height: 25px;;
+}
+
+h1 {
+    margin: 20px
+}
+
+li {
+    list-style: none;
+}
+
+.all,
+.active,
+.completed {
+    border: none;
+    background-color: rgb(69, 148, 179);
+    width: 80px;
+    padding: 8px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.all:hover,
+.active:hover,
+.completed:hover {
+    background-color: rgb(136, 203, 230);
+    color: black;
+}
+
+.taskInfo {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+
+}
+
+.taskInfo:hover {
+    background-color: rgb(207, 241, 242);
+}
+
+.delButton {
+    width: 25px;
+    height: 25px;
+    font-size: 1rem;
+    border: none;
+    background-color: rgb(142, 9, 9);
+    border-radius: 3px;
+    color: white;
+}
+
+.controlButtons {
+    margin: 10px 0;
+}
+.mainAndFooter {
+    border: 2px solid black;
+    margin: 0 35vw;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.footerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+.footerInput {
+    padding: 8px;
+    font-size: 1.1rem;
+}
+
+.footerButton {
+    width: 35px;
+    height: 35px;
+    font-size: 1.8rem;
+    border: none;
+    background-color: rgb(156, 239, 156);
+    border-radius: 5px;
+}
+
+.footerButton:hover {
+background-color: rgb(63, 165, 63);
+color: white;
+}

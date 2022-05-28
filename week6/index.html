@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>To-do App</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>TO-DO APPLICATION</h1>
+    </header>
+
+    <!-- Main -->
+    <div class="mainAndFooter">
+      <main>
+        <ul id="taskList">
+          <li class="taskInfo">
+            <label class="label" for="task">
+              <input type="checkbox" name="status" id="task" />
+              Task One
+            </label>
+            <button class="delButton">X</button>
+          </li>
+        </ul>
+        <ul id="listFooter">
+          <li id="statusBar">
+            <div><span id="count"></span> Tasks</div>
+            <div class="controlButtons">
+              <button class="filterBy all selected">All</button>
+              <button class="filterBy active">Active</button>
+              <button class="filterBy completed">Completed</button>
+            </div>
+          </li>
+        </ul>
+      </main>
+
+      <!-- Footer -->
+      <footer id="mainFooter">
+        <form name="toDo">
+          <label class="footerForm" for="addTask"
+            >Task:
+            <input
+              class="footerInput"
+              type="text"
+              id="addTask"
+              name="addTask"
+              autofocus
+              placeholder="Type your task here"
+              maxlength="32"
+              required
+            />
+            <button class="footerButton" id="add">+</button>
+          </label>
+        </form>
+      </footer>
+    </div>
+    <script src="./scripts/index.js" type="module"></script>
+  </body>
+</html>
