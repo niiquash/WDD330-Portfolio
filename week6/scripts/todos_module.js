@@ -54,7 +54,6 @@ export default class Todos {
                     that.listTodos(key);
                 }
             })
-            // event.target.parentElement.remove();
         }
     }
 
