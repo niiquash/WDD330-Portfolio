@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 7 Notes</title>
+  </head>
+  <body>
+    <h1>Further Functions</h1>
+    <h2>Function Properties and Methods</h2>
+    <ul>
+      <li>
+        All functions have a "length" property that returns the number of
+        paramenters the function has.
+      </li>
+      <li>
+        The call() method can be used to set the value of "this" inside a
+        function to an object that is provided as the first argument.
+      </li>
+      <li>
+        Memoization - if a function takes some time to compute a return value,
+        we can opt to save the result in a "cache" property. Later, when the
+        argument is used again, we can return the value from the cache, rather
+        than recomputing the result again.
+      </li>
+    </ul>
+    <h2>More on functions</h2>
+    <ul>
+      <li>
+        Functions can define and redefine themselves. Some side effects of
+        function redefining themselves is that when a property is set on a
+        function, that property is lost upon redefinition.
+      </li>
+      <li>
+        Recursive functions are functions invoke themselves until a certain
+        condition is met.
+      </li>
+      <li>
+        There are functions that are self invoking called "immediately Invoked
+        Function Expressions", IIFE for short. IFFE's are written thus:
+        <code>
+          (function() { const temp = 'World'; console.log(`Hello ${temp}`);
+          })(); << 'Hello World'
+        </code>
+      </li>
+    </ul>
+    <h2>Event-driven Asynchronous Programming</h2>
+    <ul>
+      <li>
+        As JavaScript is single threaded, it can only run one piece of code at a
+        time. If an event takes some amount of time to happen, it has to wait
+        until other parts of the program have executed, before it is invoked.
+      </li>
+      <li>
+        When more than one callback function is used in the same function, it
+        results in messy and confusing 'spaghetti code', also known as callback
+        hell.
+      </li>
+      <li>
+        Promises - this represents the future result of an asynchronous
+        operation. They help simplify the work that callbacks do.
+      </li>
+      <li>
+        A promise is created using a constructor function. The constructor
+        function takes a function called an executor as an argument, which
+        initializes the promise and starts the asynchronous operation. The
+        executor accepts two functions, "resolve()" and "reject()", which tell
+        us whether the operation was successful or failed.
+      </li>
+      <li>
+        Once a promise has been settled, the "then()" method can be used to deal
+        with the outcome, if the operation was successful, or if it was
+        rejected. The "then()" method takes two arguments, the first is used
+        when the promise is resolved, and the second when the promise is
+        rejected,
+        <code
+          >promise.then(result => console.log(`Yes! I roleed a ${result},
+          console.log(`Drat!... I rolled a ${result}`));
+        </code>
+      </li>
+      <li>
+        Alternatively, the "catch()" method can be used to handle promise
+        rejection.
+        <code>
+          promise.then( result => console.log(`I rolled a ${result}`) ) .catch(
+          result => console.log(`Drat! ... I rolled a ${result}`) );
+        </code>
+      </li>
+    </ul>
+    <h2>Closures</h2>
+    <ul>
+      <li>
+        A closure is formed when a function returns another function that then
+        maintains access to any variables created in the original function's
+        scope
+      </li>
+    </ul>
+  </body>
+</html>

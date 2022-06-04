@@ -31,52 +31,45 @@ export default class Todos {
         utilities.onTouch(utilities.select("#add"), this.completeTodo);
     }
 
-    completeTodo() {
+    completeTodo(key = this._key) {
         let tasks = Array.from(utilities.selectAll(".taskInfo input"));
-        let list = getTodos("todos");
-        tasks.forEach(task => {
-            task.addEventListener("click", () => {
-                list.forEach(todo => {
-                    tasks.forEach(task => {
-                        if (todo.id == task.id) {
-                            if (task.checked === true) {
-                                todo.completed = true;
-                                ls.writeToLocalStorage("todos", list)
-                            }
-                            else {
-                                todo.completed = false;
-                                ls.writeToLocalStorage("todos", list)
-                            }
-                        }
-                        else {
-                            console.log("hmmm")
-                        }
-                    })
-                })
-            })
+        let list = getTodos(key);
+        tasks.map(task => {
+            utilities.onTouch(task, updateStatus);
         })
+
+        function updateStatus(event) {
+            list.map(todo => {
+                if (todo.id == event.currentTarget.id) {
+                    if (event.currentTarget.checked === true) {
+                        todo.completed = true;
+                        ls.writeToLocalStorage(key, list);
+                    }
+                    else {
+                        todo.completed = false;
+                        ls.writeToLocalStorage(key, list)
+                    }
+                }
+            })
+        }
     }
 
-    removeTodo() {
+    removeTodo(key = this._key) {
+        const that = this;
         let delButtons = Array.from(document.querySelectorAll(".delButton"));
-        let list = getTodos("todos");
+        let list = getTodos(key);
         delButtons.forEach(button => {
-            button.addEventListener("click", deleteTodo)
+            utilities.onTouch(button, deleteTodo)
         });
 
-        function deleteTodo(event, name = "todos") {
-            console.log(event.target.previousSibling);
+        function deleteTodo(event) {
             list.forEach(todo => {
                 if (todo.id == event.target.previousSibling.classList) {
                     list.splice(list.indexOf(todo), 1);
-                    ls.writeToLocalStorage(name, list);
-                    console.log(list);
-                }
-                else {
-                    console.log(todo.id);
+                    ls.writeToLocalStorage(key, list);
+                    that.listTodos(key);
                 }
             })
-            event.target.parentElement.remove();
         }
     }
 
