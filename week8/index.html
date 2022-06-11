@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 8 Notes</title>
+  </head>
+  <body>
+    <h1>CSS3 Transforms and Transitions</h1>
+    <h2>Transforms</h2>
+    <ul>
+      <li>
+        The transform property allows you to translate, rotate, scale or skew
+        any element on the page
+      </li>
+      <li>
+        An elements appearance can be manipulated using transform functions,
+        separated by spaces and applied in the order they're provided.
+      </li>
+      <h3>Translation</h3>
+      <li>
+        Translation: translation functions allow you to move an element left,
+        right, up or down, similar to the behavior of position: relative;
+      </li>
+      <li>
+        The "translate(x,y) function moves an element x from the left and y from
+        the top."
+      </li>
+      <li>
+        Transforms require vendor prefixing for older browsers, including: IE9,
+        Android up to 4.4.3, iOS8, and Blackberry 10.
+      </li>
+      <li>
+        You can also use "translateX()" or "translateY()" if you want to move an
+        element only vertically or horizontally.
+      </li>
+      <li>
+        Note that transforms don't work on inline elements. A quick fix for this
+        is to display the element as "inline-block".
+      </li>
+      <h3>Scaling</h3>
+      <li>
+        The function "scale(x,y)" scales an element by the defined factors
+        horizontally and then vertically
+      </li>
+      <li>
+        If only one value is provided, it will apply both vertically and
+        horizontally to the element.
+      </li>
+      <li>
+        You can also use "scaleX()" and "scaleY()" for individual scaling.
+      </li>
+      <h3>Rotation</h3>
+      <li>
+        The "rotate()" function rotates and element around the point of origin,
+        usually the center of the element. Angles are specified, and positive
+        angles go clockwise, while negative angles go counterclockwise.
+      </li>
+      <h3>Skew</h3>
+      <li>
+        The "skew(x,y)" function specifies a skew along the x and y axes. If the
+        second parameter is omitted, the skew will only occur on the x axis.
+      </li>
+    </ul>
+    <h2>Transitions</h2>
+    <ul>
+      <li>
+        This is a way of animating transforms to making them gradual instead of
+        immediate. Our pages feel more dynamic with transitions. To create a
+        simple transition using only CSS, follow these steps:
+      </li>
+      <ul>
+        <li>
+          Declare the original state of the element in the default style
+          declaration
+        </li>
+        <li>
+          Declare the final state of your transition element; for example, a
+          :hover state.
+        </li>
+        <li>
+          Include the transition functions in your default style declarations
+          using the transition properties: "transition-property",
+          "transition-duration", "transition-timing-function",
+          "transition-delay".
+        </li>
+      </ul>
+      <h3>transition-property</h3>
+      <li>
+        Any property changing from one value to another for which a valid
+        midpoint can be found, can be transitioned.
+      </li>
+      <li>
+        You can provide any number of CSS properties to the
+        "transition-property" declaration, separated by commas. You can also use
+        the keyword "all" to indicate that every supported property should be
+        animated as it transitions.
+      </li>
+      <h3>transition-duration</h3>
+      <li>This sets how long the transition will take.</li>
+      <li>
+        0.2 seconds is generally considered the optimum time for a transition.
+        Anything slower will make the website seem slow, and anything faster may
+        be too subtle.
+      </li>
+      <h3>transition-timing-function</h3>
+      <li>
+        This lets you control the pace of the transition in even more granular
+        detail.
+      </li>
+      <li>
+        The common key terms for timing functions include "ease", "linear",
+        "ease-in", "ease-out" or "ease-in-out".
+      </li>
+      <h3>transition-delay</h3>
+      <li>
+        This makes it possible to introduce a delay before the transition
+        begins. This is good practice for a good UI experience.
+      </li>
+      <h3>transition shorthand</h3>
+      <li>
+        We can combine all four transition properties into one line:
+        "transition: transform 0.2s ease-out 50ms"
+      </li>
+    </ul>
+  </body>
+</html>
