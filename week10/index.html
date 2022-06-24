@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 10 Notes</title>
+  </head>
+  <body>
+    <h1>Validating Forms</h1>
+    <p>
+      Client-side form validation is when we ensure that all required form
+      controls are filled out and in the correct format. It is, however, not
+      enough to check for form validity alone on the client-side, but on the
+      server side as well. The reason for this is that it is easy to bypass
+      client-side form validation, and people can take advantage of that.
+    </p>
+
+    <ul>
+      <li>
+        Validation done in the browser is called "client-side" validation.
+      </li>
+      <li>Validation done on the server is called "server-side" validation.</li>
+      <li>
+        Three main reasons for insisting on form validation are:
+        <ul>
+          <li>We want to get the right data in the right format</li>
+          <li>We want to protect our users' data</li>
+          <li>We want to protect ourselves.</li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Types of client-side validation</h3>
+    <ul>
+      <li>
+        Built-in form validation: This uses HTML5 form validation features. This
+        generally doens't require much JS, and has a better performace than JS,
+        but it is not as customizable.
+      </li>
+      <li>JavaScript: this validation is coded using JS.</li>
+    </ul>
+    <h3>Built-in form validation</h3>
+    <p>This features uses keyword/properties, listed and defined below:</p>
+    <ul>
+      <li>
+        required: Specifies whether a form field needs to be filled in before
+        the form can be submitted.
+      </li>
+      <li>
+        minlength & maxlength: Specifies the minimum and maximum length of
+        textual data (strings)
+      </li>
+      <li>
+        min and max: Specifies teh minimum and maximum values of numerical input
+        types.
+      </li>
+      <li>
+        type: Specifies whether the data needs to be a number, an email address,
+        or some other specific preset type.
+      </li>
+      <li>
+        pattern: Specifies a regular expression that defines a pattern the
+        entered data needs to follow.
+      </li>
+    </ul>
+    <h3>Contraining the length and value of your entries</h3>
+    <ul>
+      <li>
+        You can constrain the character length of all text fields created by
+        "input" or "textarea", by using the "minlength" and "maxlength"
+        attributes.
+      </li>
+      <li>
+        For number fields, "type=number", the "min" and "max" attributes can be
+        used to provide a range of valid values. If the field contains a value
+        outside this range, it will be invalid.
+      </li>
+      <li>
+        Visit this link for codepen demo:
+        <a href="https://codepen.io/niiquash-the-sasster/pen/eYVqrBN"
+          >Built-in Validation Demo</a
+        >
+      </li>
+    </ul>
+    <h3>JavaScript form validation</h3>
+    <ul>
+      <li>
+        If you want to take control of the look and feel of the native error
+        messages or to deal with legacy browser that do not support HTML's
+        built-in form validation, use JS.
+      </li>
+      <li>
+        JavaScript uses the Constraint Validation API to manipulate forms.
+        Customizing error messages is one of the most common use cases of the
+        API.
+      </li>
+      <li>
+        Here's the link to a JS validation demo<a
+          href="https://codepen.io/niiquash-the-sasster/pen/OJQKZqG"
+          >JS validation demo</a
+        >
+      </li>
+    </ul>
+    <h1>Using Fetch</h1>
+    <ul>
+      <li>
+        A basic fetch request is easy to set up.
+        <code
+          >fetch('http://example.com/movies.json') .then(response =>
+          response.json()) .then(data => console.log(data));
+        </code>
+      </li>
+      <li>
+        Here, we are fetching a JSON file across the network and printing it to
+        the console. The simplest use of fetch() takes one argument - the path
+        to the resource you want to fetch - and does not directly return the
+        JSON response body but instead returns a promise that resolves with a
+        Response object
+      </li>
+      <li>
+        The Response object, in turn, does not directly contain the actual JSON
+        response body but is instead a representation of the entire HTTP
+        response. So, to extract the JSON body content from the Response, we use
+        the json() method, which returns a second promise that resolves with the
+        result of parsing the response body text as JSON.
+      </li>
+    </ul>
+  </body>
+</html>
