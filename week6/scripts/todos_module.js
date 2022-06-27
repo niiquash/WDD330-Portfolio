@@ -2,33 +2,56 @@ import * as utilities from "./utilities.js";
 import * as ls from "./localStorage.js";
 
 export default class Todos {
-    constructor(parentElementID, key) {
-        this.parent = utilities.select(parentElementID);
-        this.key = key
+    constructor(parentID, key) {
+        this._parent = utilities.select(parentID);
+        this._key = key;
     }
 
     addTodo() {
-        let taskInput = utilities.select("#addTask");
-        if (taskInput.value === "") {
-            alert("Enter a task to add to the list");
-        }
-
-        else {
-            saveTodo(taskInput.value, "todos");
-            taskInput.value = "";
-        }
+        const that = this;
+        const addButton = utilities.select("#add");
+        utilities.onTouch(addButton, () => {
+            let taskInput = utilities.select("#addTask");
+            if (taskInput.value === "") {
+                alert("Enter a task to add to the list");
+            }
+            else {
+                saveTodo(taskInput.value, that._key);
+                taskInput.value = "";
+            }
+            that.listTodos(that._key);
+        })
     }
 
-    listTodos() {
-        console.log(getTodos("todos"));
-        renderTodoList(getTodos("todos"), this.parent);
-        utilities.onTouch(utilities.select("#add"), this.removeTodo);
+    listTodos(key = this._key) {
+        renderTodoList(getTodos(key), this._parent);
+        const childList = Array.from(utilities.select("#taskList").children);
+        let counter = utilities.select("#count");
+        let count = childList.length;
+        counter.innerHTML = count;
+        this.removeTodo();
+        this.completeTodo();
+        this.filterTodo();
     }
 
-    addTaskListener() {
-        utilities.onTouch(utilities.select("#add"), this.addTodo);
-        utilities.onTouch(utilities.select("#add"), this.listTodos);
-        utilities.onTouch(utilities.select("#add"), this.completeTodo);
+    removeTodo(key = this._key) {
+        const that = this;
+        let delButtons = Array.from(document.querySelectorAll(".delButton"));
+        let list = getTodos(key);
+        delButtons.forEach(button => {
+            utilities.onTouch(button, deleteTodo)
+        });
+
+        function deleteTodo(event) {
+            list.forEach(todo => {
+                if (todo.id == event.target.previousSibling.classList) {
+                    list.splice(list.indexOf(todo), 1);
+                    ls.writeToLocalStorage(key, list);
+                    that.listTodos(key);
+                }
+            })
+            // event.target.parentElement.remove();
+        }
     }
 
     completeTodo(key = this._key) {
@@ -54,31 +77,54 @@ export default class Todos {
         }
     }
 
-    removeTodo(key = this._key) {
-        const that = this;
-        let delButtons = Array.from(document.querySelectorAll(".delButton"));
-        let list = getTodos(key);
-        delButtons.forEach(button => {
-            utilities.onTouch(button, deleteTodo)
-        });
+    filterTodo() {
+        const filterButton = Array.from(utilities.selectAll(".filterBy"));
+        const childList = Array.from(utilities.select("#taskList").children);
+        let completedButton = utilities.select(".completed");
+        let activeButton = utilities.select(".active");
+        let allButton = utilities.select(".all");
 
-        function deleteTodo(event) {
-            list.forEach(todo => {
-                if (todo.id == event.target.previousSibling.classList) {
-                    list.splice(list.indexOf(todo), 1);
-                    ls.writeToLocalStorage(key, list);
-                    that.listTodos(key);
+        utilities.onTouch(completedButton, () => {
+            filterButton.map(button => button.classList.remove("selected"));
+            completedButton.classList.add("selected");
+            let counter = utilities.select("#count");
+            let count = childList.length;
+            childList.map(task => {
+                task.classList.remove("hidden");
+                if (task.firstElementChild.firstElementChild.checked === false) {
+                    task.classList.add("hidden");
+                    count -= 1;
                 }
             })
-        }
-    }
+            counter.innerHTML = count;
+        })
 
-    filterTodo() {
-        let list = Array.from(utilities.selectAll(".filterBy"));
-        list.forEach(item => utilities.onTouch(item, filterBy));
-        list.forEach(item => utilities.onTouch(item, this.addTaskListener));
-    }
+        utilities.onTouch(activeButton, () => {
+            filterButton.map(button => button.classList.remove("selected"));
+            activeButton.classList.add("selected");
+            let counter = utilities.select("#count");
+            let count = childList.length;
+            childList.map(task => {
+                task.classList.remove("hidden");
+                if (task.firstElementChild.firstElementChild.checked === true) {
+                    task.classList.add("hidden");
+                    count -= 1;
+                }
+            })
+            counter.innerHTML = count;
+        })
 
+        utilities.onTouch(allButton, () => {
+            filterButton.map(button => button.classList.remove("selected"));
+            allButton.classList.add("selected");
+            let counter = utilities.select("#count");
+            let count = childList.length;
+            childList.map(task => {
+                task.classList.remove("hidden");
+            })
+            counter.innerHTML = count;
+        })
+    }
 }
 
 const toDoList = [];
@@ -95,7 +141,6 @@ function saveTodo(task, key) {
         ls.writeToLocalStorage(key, toDoList);
         console.log("oh");
     }
-
     else {
         let list = getTodos(key);
         list.push(todo)
@@ -131,47 +176,5 @@ function renderTodoList(list, element = utilities.select("#taskList")) {
                 element.appendChild(taskInfo);
             }
         });
-    }
-}
-
-function filterBy(event) {
-    let completedButton = utilities.select(".completed");
-    let activeButton = utilities.select(".active");
-    let allButton = utilities.select(".all");
-    let childList = Array.from(utilities.select("#taskList").children);
-    console.log(childList)
-    let count = utilities.select("#count");
-    let filtered = [];
-
-    switch (event.currentTarget) {
-        case activeButton:
-            console.log('active');
-            getTodos("todos").forEach(todo => {
-                if (todo.completed === false) {
-                    filtered.push(todo);
-                    count.textContent = filtered.length;
-                    renderTodoList(filtered, utilities.select("#taskList"));
-                }
-            })
-            break;
-        case completedButton:
-            console.log('completed');
-            getTodos("todos").forEach(todo => {
-                if (todo.completed === true) {
-                    filtered.push(todo);
-                    count.textContent = filtered.length;
-                    renderTodoList(filtered, utilities.select("#taskList"));
-                }
-            })
-            break;
-        case allButton:
-            console.log('all');
-            renderTodoList(getTodos("todos"), utilities.select("#taskList"));
-            count.textContent = getTodos("todos").length;
-            break;
-        default:
-            renderTodoList(getTodos("todos"), utilities.select("#taskList"));
-            count.textContent = getTodos("todos").length;
-            break;
     }
 }
