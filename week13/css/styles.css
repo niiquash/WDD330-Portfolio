@@ -40,8 +40,12 @@ header {
     border-radius: 5px;
     background-color: #FFFFFF;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
+}
+
+button.held {
+    background-color: #59E391;
 }
 
 .play-btn-container {
@@ -61,6 +65,10 @@ header {
     box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
     border-radius: 3.81277px;
     cursor: pointer;
+}
+
+.play-btn-container > button:active {
+    background-color: #332497;
 }
 
 /* Footer */
