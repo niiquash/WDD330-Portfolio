@@ -17,8 +17,8 @@ const removeChildren = () => {
 }
 
 // This is the isHeld function
-const isHeld = () => {
-    return true
+const toggleHold = (e) => {
+    e.target.classList.value === "held" ? true : false;
 }
 
 // This is the addHeldClass function
@@ -26,9 +26,9 @@ const addHeldClass = (e) => {
     if (e.target.classList.value === "") {
         e.target.classList.value = "held";
         currentHeldDice.push(e.target)
-        isHeld();
     } else if (e.target.classList.value === "held") {
         e.target.classList.value = "";
+        currentHeldDice.pop(e.target)
     }
 }
 
@@ -56,6 +56,7 @@ const boardOfDice = () => {
     removeChildren();
     const btn = new Button();
     btnArray = [...btn.createButtonArray()];
+
     // Gather the held dice into an array.
 
     const btnArray2 = balanceBoard()

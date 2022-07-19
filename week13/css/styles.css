@@ -71,4 +71,7 @@ button.held {
     background-color: #332497;
 }
 
-/* Footer */
+.finish {
+    text-align: center;
+    font-size: 2rem;
+}
